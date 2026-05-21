@@ -20,7 +20,7 @@ bash <(curl -fsSL https://github.com/NOTAPSXD/Spectra-Panel/raw/main/installer.s
 1. The installer will prompt you to create an **Administrator Account**.
 2. Once complete, visit `http://your-server-ip:3000`.
 3. You will be prompted to enter your **License Key**.
-4. To manage your license keys, visit your [Master License Dashboard](https://spectra-api-eight.vercel.app/admin).
+4. To obtain a license key, please join our [Discord Community](https://discord.vexanode.cloud) or contact `@92lr` on Discord.
 
 ## Security
 Spectra Panel is distributed as a protected binary to ensure system integrity and intellectual property protection.
