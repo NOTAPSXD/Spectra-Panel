@@ -50,7 +50,8 @@ fi
 # 3. Deployment
 echo -e "${YELLOW}[3/6] Downloading Spectra Engine...${NC}"
 mkdir -p $INSTALL_DIR
-wget -q $BIN_URL -O $INSTALL_DIR/spectra.bin
+wget -q "https://github.com/NOTAPSXD/Spectra-Panel/raw/main/spectra-engine.tar.gz" -O /tmp/spectra-engine.tar.gz
+tar -xzf /tmp/spectra-engine.tar.gz -C $INSTALL_DIR --strip-components=1
 chmod +x $INSTALL_DIR/spectra.bin
 
 # 4. First-Run Configuration
@@ -64,7 +65,7 @@ fi
 # 5. User Creation
 echo -e "${CYAN}[5/6] Creating Administrator Account${NC}"
 cd $INSTALL_DIR
-./spectra.bin --create-admin
+LD_LIBRARY_PATH=$INSTALL_DIR ./spectra.bin --create-admin
 
 # 6. Service Management
 echo -e "${YELLOW}[6/6] Establishing system persistence...${NC}"
@@ -77,6 +78,7 @@ After=network.target
 Type=simple
 User=root
 WorkingDirectory=$INSTALL_DIR
+Environment="LD_LIBRARY_PATH=$INSTALL_DIR"
 ExecStart=$INSTALL_DIR/spectra.bin
 Restart=always
 RestartSec=5
